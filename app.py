@@ -1,5 +1,23 @@
 #!/usr/bin/python
 
+
+
+entry = input("Hey !\nChoose a method to run this app\nd:debug | l:localnetwork | w:wideweb --> ")
+
+
+print(entry)
+
+
+if entry == "d":
+    ip_address = "127.0.0.1"
+    port_number = 5000
+
+elif entry == "l":
+    ip_address = ""
+    # miram bexabm note : baraye farda --> cart shabake i ke ip marboot dare ro peyda kon bzar xat balayi
+
+
+
 from flask import Flask
 from flask import render_template, send_file
 from flask import abort, request
@@ -15,8 +33,6 @@ import os
 
 load_dotenv()
 
-ip_address = os.getenv("ip_address_from_dotenv")
-port_number = os.getenv("port_number_from_dotenv", 5000)
 
 print(len (port_number) )
 
@@ -31,7 +47,9 @@ def upload_func():
 @app.route("/uploader", methods = ["GET","POST"])
 def uploader():
     if request.method == "POST":
-        print("before getting files as list")
+        # ! IMPORTANT NOTE FOR CONTRIBUTERS !
+        # Even stream tell is not really a good method for uploading big files
+        # IF YOU KNOW ANY GOOD METHOD PLEASE BE IN TOUCH !!!!!
         print(request.stream.tell())
         uped_files = request.files.getlist("file")
 
@@ -60,6 +78,15 @@ def index_files_func(req_path):
 
     files = os.listdir(abs_path)
     return render_template("index_files.html", files=files)
+
+
+from socket import gethostname
+from subprocess import run as sbrun
+from subprocess import PIPE
+
+def run_command(command):
+        result = sbrun(command.split(" "), stdout=PIPE)
+        return result.stdout.decode("UTF-8")
 
 
 
