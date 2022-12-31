@@ -45,7 +45,7 @@ def uploader():
                 return "<b>No file is selected</b>"
     
 
-    return f"Done <br> Check <a href='http://{ip_address}:{str(port_number)}/server_files'>Here</a>"
+    return f"Done <br> Check <a href='http://{ip_address}:{str(port_number)}/server_files'>Here</a><br><hr><a href='http://{ip_address}:{str(port_number)}/'>Upload Again</a>"
 
 
 @app.route("/<path:req_path>")
