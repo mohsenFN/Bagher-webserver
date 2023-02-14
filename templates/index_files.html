@@ -1,8 +1,9 @@
 <html>
 <head>
+	<link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
 	<title>Videos page</title>
 </head>
-	<body>
+	<body style="moz-transform: scale(1.4);">
 	<ul>
 		{% for file in files %}
 			<li><a href="{{ (request.path + '/' if request.path != '/' else '') + file }}">{{ file }}</a></li>

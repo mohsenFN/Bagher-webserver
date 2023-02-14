@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
+    <title>Login page</title>
+</head>
+
+<body style="background-color: darkslateblue; moz-transform: scale(1.4);">
+    <br>
+    <form action='login' method='POST'
+        style="text-align: center; background-color: darkslateblue; border-color: darkslateblue;">
+        <input type='text' name='email' id='email' placeholder='email' /><br>
+        <input type='password' name='password' id='password' placeholder='password' /><br>
+        <button class="primary">Login</button>
+    </form>
+    {% if error is defined %}
+    <center>
+        <div class="card error" style="text-align: center;">{{ error }}</div>
+    </center>
+    {% endif %}
+</body>
+
+</html>

@@ -1,18 +1,36 @@
 <html>
+
 <head>
+	<link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
 	<title>Upload page</title>
 </head>
 
-<body>
-	<form action="http://{{ ip_address }}:{{ port_number }}/uploader" method="POST" enctype="multipart/form-data">
-		<input type="file" name="file" multiple="">
+<body style="-moz-transform: scale(1.4);">
+
+	<center>
+		<form action="http://{{ ip_address }}:{{ port_number }}/uploader" method="POST" enctype="multipart/form-data">
+
+
+			<input type="file" id="file-input" style="display:none" name="file" multiple="" />
+			<label for="file-input" class="button">Choose</label>
+
+			<br>
+			<button class="primary">Upload</button>
+		</form>
+		<hr>
 		<br>
-		<input type="submit">
-	</form>
-	<br><hr>
+		<b><a href="/server_files">Server Files</a></b>
 
-	<b><a href="/server_files">Server Files</a></b>
+		<br>
+		{% if message is defined %}
+			<div class="card error">{{ message }}</div>
+		{% endif %}
+		<br>
 
+		{% if logged_in is defined %}
+			<b><a style="color: red;" href="/logout">logout</a></b>
+		{% endif %}
+	</center>
 </body>
 
 </html>
