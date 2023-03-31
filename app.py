@@ -1,11 +1,12 @@
 
 "CONFIG"
-ip_address = "192.168.1.103"
-port_number = 80
+ip_address = "10.0.0.2"
+port_number = 5000
 username = "admin"
 password = "admin"
 secret = "MohsenFoolad"
-files_dir = "/core/server_files/"
+files_dir = "/home/mohsen/chamedoon/bagher-storage/"
+files_dir_name = "/bagher-storage"
 "END CONFIG"
 
 import flask_login
@@ -13,7 +14,7 @@ from flask_login import current_user
 from flask import Flask
 from flask import render_template, send_file, url_for, redirect
 from flask import abort, request
-
+from flask import json
 from werkzeug.utils import secure_filename
 
 
@@ -80,7 +81,7 @@ def login():
         user = User()
         user.id = email
         flask_login.login_user(user)
-        return render_template('upload.html', logged_in = True, ip_address=ip_address,port_number=port_number)
+        return render_template('upload.html', logged_in = True, ip_address=ip_address,port_number=port_number, files_dir_name=files_dir_name)
 
     return render_template("login.html", error = "Invalid Data !")
 
@@ -108,7 +109,7 @@ def upload_func():
     if current_user.is_authenticated == False:
         return render_template("upload.html", ip_address=ip_address,port_number=port_number)
     else:
-        return render_template("upload.html", ip_address=ip_address,port_number=port_number, logged_in = True)
+        return render_template("upload.html", ip_address=ip_address,port_number=port_number, logged_in = True, )
 
 
 
@@ -138,20 +139,21 @@ def index_files_func(req_path):
     base_dir = "../"
     abs_path = os.path.join(base_dir, req_path)
     
+    print(abs_path)
     if not os.path.exists(abs_path):
         return f"{abs_path}"
     if os.path.isfile(abs_path):
         return send_file(abs_path)
 
     files = os.listdir(abs_path)
+    print(files)
     return render_template("index_files.html", files=files)
 
 
-# This means no limit for reqs (beyond defualts)
-@app.route("/ping")
-@limiter.exempt
-def ping():
-    return "PONG"
+
+
+
+
 
 if __name__ == "__main__":
     app.run(host=ip_address, port=port_number, debug=True)
