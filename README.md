@@ -15,8 +15,6 @@ PERSIAN README
 
 این برنامه تنها بر روی سیستم عامل‌های مک و لینوکس قابل اجرا است.
 
-ENGLISH README
-
 Description:
 
 This is a simple program designed for working with local area networks (LANs) on Mac and Linux operating systems. With this program, you can easily share your files with other devices that are on the same network. This program has the ability to upload and download files. In summary, with this program, you can easily and quickly share your files with others.
