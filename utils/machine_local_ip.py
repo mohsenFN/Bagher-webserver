@@ -16,3 +16,4 @@ def get_local_ipv4():
     s.close()
 
     return local_ipv4
+
