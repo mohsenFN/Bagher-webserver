@@ -1,14 +1,3 @@
-
-"CONFIG"
-ip_address = "10.0.0.2"
-port_number = 5000
-username = "admin"
-password = "admin"
-secret = "MohsenFoolad"
-files_dir = "/home/mohsen/chamedoon/bagher-storage/"
-files_dir_name = "/bagher-storage"
-"END CONFIG"
-
 import flask_login
 from flask_login import current_user
 from flask import Flask
@@ -20,6 +9,16 @@ from werkzeug.utils import secure_filename
 
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+
+"CONFIG"
+ip_address = "10.0.0.2"
+port_number = 5000
+username = "admin"
+password = "admin"
+secret = "MohsenFoolad"
+files_dir = "/home/mohsen/chamedoon/bagher-storage/"
+files_dir_name = "/bagher-storage"
+"END CONFIG"
 
 login_manager = flask_login.LoginManager()
 
