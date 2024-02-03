@@ -14,7 +14,7 @@ from utils import machine_local_ip
 
 "CONFIG"
 ip_address = machine_local_ip.get_local_ipv4()
-port_number = 5000
+port_number = 80 
 username = "admin"
 password = "admin"
 secret = "MohsenFoolad"
