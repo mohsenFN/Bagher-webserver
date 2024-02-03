@@ -10,8 +10,10 @@ from werkzeug.utils import secure_filename
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
+from utils import machine_local_ip
+
 "CONFIG"
-ip_address = "10.0.0.2"
+ip_address = machine_local_ip.get_local_ipv4()
 port_number = 5000
 username = "admin"
 password = "admin"
