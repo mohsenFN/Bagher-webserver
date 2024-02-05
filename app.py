@@ -128,7 +128,8 @@ def uploader():
         for uped_file in uped_files:    
             try:
                 print("started saving file")
-                uped_file.save(f"{files_dir}{uped_file.filename}")
+                
+                uped_file.save(f"{files_dir}/{uped_file.filename}")
 
             except IsADirectoryError:
                 return render_template("upload.html", ip_address=ip_address,port_number=port_number, message = "No file is selected !")
