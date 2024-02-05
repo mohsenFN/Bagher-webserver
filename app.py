@@ -10,7 +10,10 @@ from werkzeug.utils import secure_filename
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
-from utils import machine_local_ip
+from utils import machine_local_ip, storage_init
+
+# This function will make a storage directory if not exists
+storage_init.init()
 
 "CONFIG"
 ip_address = machine_local_ip.get_local_ipv4()
@@ -18,8 +21,8 @@ port_number = 80
 username = "admin"
 password = "admin"
 secret = "MohsenFoolad"
-files_dir = "/home/mohsen/chamedoon/bagher-storage/"
-files_dir_name = "/bagher-storage"
+files_dir = storage_init.init()[1]
+files_dir_name = storage_init.init()[0]
 "END CONFIG"
 
 login_manager = flask_login.LoginManager()
