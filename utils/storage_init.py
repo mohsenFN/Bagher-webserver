@@ -6,3 +6,4 @@ def make_storage_dir():
     # make directory if not exists
     if not os.path.exists(storage_path):
         os.makedirs(storage_path)
+    return 'storage', storage_path
