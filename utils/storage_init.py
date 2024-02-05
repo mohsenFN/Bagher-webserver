@@ -1,6 +1,6 @@
 import os
 
-def make_storage_dir():
+def init():
     cwd = os.getcwd()
     storage_path = cwd+'/storage'
     # make directory if not exists
