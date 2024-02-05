@@ -8,7 +8,7 @@ from flask import (
     request,
     json
 )
-from flask_login import current_user
+from flask_login import current_user, LoginManager
 from werkzeug.utils import secure_filename
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -30,7 +30,7 @@ secret = "MohsenFoolad"
 files_dir = storage_init.init()[1]
 files_dir_name = storage_init.init()[0]
 
-login_manager = flask_login.LoginManager()
+login_manager = LoginManager()
 
 
 app = Flask(__name__)
