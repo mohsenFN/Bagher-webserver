@@ -8,7 +8,7 @@ from flask import (
     request,
     json
 )
-from flask_login import current_user, LoginManager
+import flask_login
 from werkzeug.utils import secure_filename
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -30,7 +30,7 @@ secret = "MohsenFoolad"
 files_dir = storage_init.init()[1]
 files_dir_name = storage_init.init()[0]
 
-login_manager = LoginManager()
+login_manager = flask_login.LoginManager()
 
 
 app = Flask(__name__)
@@ -110,7 +110,7 @@ def unauthorized_handler():
 @app.route("/")
 @app.route("/up")
 def upload_func():
-    if current_user.is_authenticated == False:
+    if flask_login.current_user.is_authenticated == False:
         return render_template("upload.html", ip_address=ip_address,port_number=port_number)
     else:
         return render_template("upload.html", ip_address=ip_address,port_number=port_number, logged_in = True, )
