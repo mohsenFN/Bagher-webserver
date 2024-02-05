@@ -12,7 +12,10 @@ from flask_limiter.util import get_remote_address
 
 from utils import machine_local_ip, storage_init
 
-# This function will make a storage directory if not exists
+'''
+This function will make a storage directory if not exists
+You can use 'custom_storage_dir' function based in storage_init module to set a custom storage dir
+'''
 storage_init.init()
 
 "CONFIG"
