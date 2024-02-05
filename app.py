@@ -43,11 +43,7 @@ limiter = Limiter(
     storage_uri="memory://",
 )
 
-from dotenv import load_dotenv
 import os
-
-load_dotenv()
-
 
 
 class User(flask_login.UserMixin):
