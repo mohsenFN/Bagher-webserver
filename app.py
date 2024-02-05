@@ -1,16 +1,20 @@
-import flask_login
+from flask import (
+    Flask,
+    render_template,
+    send_file,
+    url_for,
+    redirect,
+    abort,
+    request,
+    json
+)
 from flask_login import current_user
-from flask import Flask
-from flask import render_template, send_file, url_for, redirect
-from flask import abort, request
-from flask import json
 from werkzeug.utils import secure_filename
-
-
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-
 from utils import machine_local_ip, storage_init
+import os
+
 
 '''
 This function will make a storage directory if not exists
@@ -43,7 +47,6 @@ limiter = Limiter(
     storage_uri="memory://",
 )
 
-import os
 
 
 class User(flask_login.UserMixin):
