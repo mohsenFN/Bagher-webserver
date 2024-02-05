@@ -18,7 +18,6 @@ You can use 'custom_storage_dir' function based in storage_init module to set a 
 '''
 storage_init.init()
 
-"CONFIG"
 ip_address = machine_local_ip.get_local_ipv4()
 port_number = 80 
 username = "admin"
@@ -26,7 +25,6 @@ password = "admin"
 secret = "MohsenFoolad"
 files_dir = storage_init.init()[1]
 files_dir_name = storage_init.init()[0]
-"END CONFIG"
 
 login_manager = flask_login.LoginManager()
 
