@@ -34,4 +34,5 @@ source venv/bin/activate
 
 ### Run Bagher
 ```bash
-python app.py```
+python app.py
+```
