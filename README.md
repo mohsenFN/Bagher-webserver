@@ -16,23 +16,32 @@ This is a simple program designed for working with local area networks (LANs) on
 
 **Note:**
 
-This program is only available for Mac and Linux operating systems
+This program is only runable in Mac and Linux operating systems
 
 ---
 
-# How to use Bagher | نحوه استفاده از باقر
-### Clone repository
-```bash
-git clone https://github.com/mohsenFN/Bagher-webserver.git
-```
+## How to use Bagher | نحوه استفاده از باقر
 
-### Generate virtual environment and activate it
-```bash
-pytho -m venv venv
-source venv/bin/activate
-```
+Follow these steps to set up and run the Bagher web server:
 
-### Run Bagher
-```bash
-python app.py
-```
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/mohsenFN/Bagher-webserver.git
+   cd Bagher-webserver
+   ```
+
+2. **Run a Virtual environment:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Install requirements:**
+   ```bash
+   pip install -r requirements
+   ```
+
+4. **Take a Smoke Test:**
+   ```bash
+   python app.py run
+   ```
