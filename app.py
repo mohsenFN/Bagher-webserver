@@ -120,17 +120,32 @@ def upload_func():
 @app.route("/uploader", methods = ["GET","POST"])
 def uploader():
     if request.method == "POST":
-        uped_files = request.files.getlist("file")
-        print(uped_files)
-        for uped_file in uped_files:    
-            try:
-                print("started saving file")
-                
-                uped_file.save(f"{files_dir}/{uped_file.filename}")
 
-            except IsADirectoryError:
-                return render_template("upload.html", ip_address=ip_address,port_number=port_number, message = "No file is selected !")
-    
+        if 'file' not in request.files:
+            return render_template("upload.html", message="No selected file")
+
+        file = request.files["file"]
+        
+        if file.filename == "":
+            return render_template("upload.html", message="No selected file")
+        
+        if file:
+            try:
+                print("Started saving file ... ")
+
+                # Use a streaming approach to save the file in chunks
+                file_path = os.path.join(files_dir, file.filename)
+                with open(file_path, "wb") as f:
+                    while True:
+                        chunk = file.stream.read(1024)  # Read 1KB at a time
+                        if not chunk:
+                            break
+                        f.write(chunk)
+
+                print("File saved successfully.")
+
+            except Exception as e:
+                return render_template("upload.html", message=f"Error: {str(e)}")
 
     return render_template("up_done.html")
 
