@@ -1,36 +1,39 @@
-<html>
+<!DOCTYPE html>
+<html lang="fa">
 
 <head>
-	<link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
-	<title>Upload page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
+    <title>صفحه آپلود</title>
 </head>
 
-<body style="-moz-transform: scale(1.4);">
+<body>
+    <center>
+        <h1 style="color: #0074D9;">باقر سرور</h1>
+        <form action="http://{{ ip_address }}:{{ port_number }}/uploader" method="POST" enctype="multipart/form-data">
 
-	<center>
-		<form action="http://{{ ip_address }}:{{ port_number }}/uploader" method="POST" enctype="multipart/form-data">
+            <input type="file" id="file-input" style="display:none" name="file" multiple="" />
+            <label for="file-input" class="button">انتخاب</label>
 
+            <br>
+            <button class="primary">آپلود</button>
+        </form>
+        <hr style="background-color: #0074D9; height: 10px;">
+        <br>
+        <b><a href="{{ files_dir_name }}">فایل‌های سرور</a></b>
 
-			<input type="file" id="file-input" style="display:none" name="file" multiple="" />
-			<label for="file-input" class="button">Choose</label>
+        <br>
+        {% if message is defined %}
+        <div class="card error">{{ message }}</div>
+        {% endif %}
+        <br>
 
-			<br>
-			<button class="primary">Upload</button>
-		</form>
-		<hr>
-		<br>
-		<b><a href="{{ files_dir_name }}">Server Files</a></b>
-
-		<br>
-		{% if message is defined %}
-			<div class="card error">{{ message }}</div>
-		{% endif %}
-		<br>
-
-		{% if logged_in is defined %}
-			<b><a style="color: red;" href="/logout">logout</a></b>
-		{% endif %}
-	</center>
+        {% if logged_in is defined %}
+        <b><a style="color: red;" href="/logout">خروج</a></b>
+        {% endif %}
+    </center>
 </body>
 
 </html>
