@@ -120,9 +120,6 @@ def upload_func():
 @app.route("/uploader", methods = ["GET","POST"])
 def uploader():
     if request.method == "POST":
-        # ! IMPORTANT NOTE FOR CONTRIBUTERS !
-        # Even stream tell is not really a good method for uploading big files
-        # IF YOU KNOW ANY GOOD METHOD PLEASE BE IN TOUCH !!!!!
         uped_files = request.files.getlist("file")
         print(uped_files)
         for uped_file in uped_files:    
