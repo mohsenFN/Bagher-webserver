@@ -1,18 +1,26 @@
-<html>
+<!DOCTYPE html>
+<html lang="fa">
 
 <head>
-	<link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
-	<title>Uploaded</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
+    <title>آپلود شده</title>
 </head>
 
-<body style="text-align: center; moz-transform: scale(1.4);">
+<body style="text-align: center;">
     <br>
 
-    <h1>Bagher :)<small>File Uploaded succesfully.</small></h1>
+    <h1>باقر<small>فایل با موفقیت آپلود شد.</small></h1>
 
-    <a href="/" target="_self">Upload More</a>
-    <br>
-    <a href="{{ files_dir_name }}" target="_self">See Index</a>
+    <form action="/" method="GET">
+        <button type="submit" class="primary">آپلود دیگری</button>
+    </form>
+
+    <form action="{{ files_dir_name }}" method="GET">
+        <button type="submit" class="primary">مشاهده فهرست</button>
+    </form>
 
 </body>
 
